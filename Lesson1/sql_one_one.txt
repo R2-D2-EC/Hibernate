@@ -1,0 +1,17 @@
+CREATE TABLE if not exists persona_one_one (
+id int(11) not null auto_increment,
+nombre varchar(128) default null,
+apellido varchar (128) default null,
+email varchar (128) default null,
+telefono varchar (128) default null,
+primary key (id))
+engine=innodb auto_increment=1 default charset=latin1;
+
+CREATE TABLE if not exists persona_detalles (
+id int(11) not null auto_increment,
+curp varchar(128) default null,
+nss varchar (128) default null,
+primary key (id),
+key FK_detalle_persona (id),
+constraint FK_detalle_persona foreign key (id) references persona_one_one (id) on delete cascade on update cascade)
+engine=innodb auto_increment=1 default charset=latin1;
